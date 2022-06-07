@@ -11,13 +11,13 @@ variables:
   azureServiceConnectionId: 'dd23277d-d680-486e-8f22-98fd7ae04a69'
 
   # Web app name
-  webAppName: 'azure-udacity-project-2'
+  webAppName: 'az-devops-project-2'
 
   # Agent VM image name
   vmImageName: 'myAgentPool'
 
   # Environment name
-  environmentName: 'azure-udacity-project-2'
+  environmentName: 'az-devops-project-2'
 
   # Project root folder. Point to the folder containing manage.py file.
   projectRoot: $(System.DefaultWorkingDirectory)
@@ -86,7 +86,7 @@ stages:
             displayName: 'Use Python version'
 
           - task: AzureWebApp@1
-            displayName: 'Deploy Azure Web App : azure-udacity-project-2'
+            displayName: 'Deploy Azure Web App : az-devops-project-2'
             inputs:
               azureSubscription: $(azureServiceConnectionId)
               appName: $(webAppName)
