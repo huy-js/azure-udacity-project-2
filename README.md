@@ -2,9 +2,9 @@
 
 # This was edited in cloud shell
 
-[![Python application test with Github Actions](https://github.com/huy-js/udacity-project-2/actions/workflows/pythonapp.yml/badge.svg)](https://github.com/huy-js/udacity-project-2/actions/workflows/pythonapp.yml)
+[![Python application test with Github Actions](https://github.com/huy-js/azure-udacity-project-2/actions/workflows/pythonapp.yml/badge.svg)](https://github.com/huy-js/azure-udacity-project-2/actions/workflows/pythonapp.yml)
 
-[![Build Status](https://dev.azure.com/huycntt/udacity-project-2/_apis/build/status/huy-js.udacity-project-2?branchName=main)](https://dev.azure.com/huycntt/udacity-project-2/_build/latest?definitionId=17&branchName=main)
+[![Build Status](https://dev.azure.com/huycntt/azure-udacity-project-2/_apis/build/status/huy-js.azure-udacity-project-2?branchName=main)](https://dev.azure.com/huycntt/azure-udacity-project-2/_build/latest?definitionId=20&branchName=main)
 
 * First of all set up SSH Keys in your azure cloud shell, add the `id_rsa.pub` key to your GitHub repo ( ssh keys)  and then clone the project there.
 
@@ -32,7 +32,7 @@ source ~/.myrepo/bin/activate
 make all
 ```
 
-![alt text](https://github.com/huy-js/udacity-project-2/blob/main/images/make%20all.png)
+![alt text](https://github.com/huy-js/azure-udacity-project-2/blob/main/images/make-all.png)
 
 * Next set up Github Actions in your repo doign this :
 
@@ -58,15 +58,14 @@ Note3: the ServiceConnection ID is the number before the name `huy-ng-prj-2` of 
 ```sh
 az webapp up -n <name of webapp> --location eastus --sku B1
 ```
-![alt text](https://github.com/huy-js/udacity-project-2/blob/main/images/app_service.png)
+![alt text](https://github.com/huy-js/azure-udacity-project-2/blob/main/images/appservice.png)
 
 
 * Important you need to create a self host agent pool to handle your pipeline
 > Create your own Azure Virtual Machine with following step in Udacity CD part
 > Config this Agent Pool in project settings
 
-![alt text](https://github.com/huy-js/udacity-project-2/blob/main/images/agentpool.png)
-
+![alt text](https://github.com/huy-js/azure-udacity-project-2/blob/main/images/agentpool.png)
 
 * In  your new Project in Azure DevOps, go to Pipelines -->New Pipeline --> GitHub --> Select Your Repo --> select `an Existing YAML file`
 
@@ -76,7 +75,7 @@ az webapp up -n <name of webapp> --location eastus --sku B1
 
 * Choose Run Pipeline and your Azure DevOps Pipeline is going to start to be deployed with all his stages ( in this case 2: Build & deploy)
 
-![alt text](https://github.com/huy-js/udacity-project-2/blob/main/images/custom-yaml-file-with-your-information.png)
+![alt text](https://github.com/huy-js/azure-udacity-project-2/blob/main/images/custom-yaml-file.png)
 
 * Perform a cosmetic change to your app.py , so you can see your CI/CD pipelines in action on Azure DevOps ( CD) & GitHub Actions (CI)
 
@@ -104,9 +103,9 @@ git push origin main
 * Check that the webapp is running opening his URL, example:
 
 ```sh
-https://huy-ng-prj-2.azurewebsites.net/
+https://az-devops-project-2.azurewebsites.net/
 ```
-![alt text](https://github.com/huy-js/udacity-project-2/blob/main/images/change%20to%20rest%20api.png)
+![alt text](https://github.com/huy-js/azure-udacity-project-2/blob/main/images/change_to_restapi.png)
 
  Update the file `make_predict_azure_app.sh` with the webapp service end point
 
@@ -138,7 +137,7 @@ Port: 443
 > This is good to know how good is your webapp and your plan to manage the requests. So you can decide to scale up the plan service of your webapp for example.
 -> Locust could generate a stats report.
 
-![alt text](https://github.com/huy-js/udacity-project-2/blob/main/images/locust.png)
+![alt text](https://github.com/huy-js/azure-udacity-project-2/blob/main/images/locust.png)
 
 ## CLEANING OUT
 
