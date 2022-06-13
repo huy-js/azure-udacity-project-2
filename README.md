@@ -13,17 +13,22 @@ ssh-keygen -t rsa
 cat ~/.ssh/id_rsa.pub
 ```
 
-checkout your new branch
-```sh
-git branch
-```
- Create a virtual environment for your application.
+Create a virtual environment for your application.
 
 ```sh
 python3 -m venv ~/.myrepo
 source ~/.myrepo/bin/activate
 ```
+* Run `make lint` check syntax
 
+```sh
+make lint
+```
+* Run `make test` run check testcase
+
+```sh
+make test
+```
 * Run `make all` which will install, lint, and test code
 
 ```sh
@@ -32,32 +37,31 @@ make all
 
 ![alt text](https://github.com/huy-js/azure-udacity-project-2/blob/main/images/make-all.png)
 
-* Next set up Github Actions in your repo doign this :
+* Next set up Github Actions in your repo doing this :
 
 > just add an space on botton of file `.github/workflows/pythonapp.yml` and save it
 
 ```sh
-ls -lasth .github/workflows/pythonapp.yml
+ls -l .github/workflows/pythonapp.yml
 vim .github/workflows/pythonapp.yml
 ```
 
 ## Second : CI/CD Pipeline with AZURE DEVOPS
 
-* Go to Azure Devops page  and sign in it, create a new Project inside your organization ( if you don't have an organization create one first).
+* Go to Azure Devops page and sign in it, create a New Project inside your organization create a new one if you do not have any
 
-* In your new Project in Azure DevOps, go to Project Settings and create a new `Pipeline --> Service Connection` as is explained on the YouTube video link  below ( Service Connection must be of Type Azure Resource Manager)
+* In your Project in Azure DevOps, go to Project Settings and create a new `Pipeline --> Service Connection` to connect to service
 
-> Note 1 : Name your Service Connection `huy-ng-prj-2`
+> Note 1 : Name your Service Connection `azure-udacity-project-2`
 > Note 2: Use a link of as this `https://dev.azure.com/<organization>/<project_name>/_apis/serviceendpoint/endpoints?api-version=5.0-preview.2`  to find your ServiceConnectionID ( take note of this number since you will needed in the yaml file to build the pipeline). Replace the values for the ones that you created for your organization and project name.
-Note3: the ServiceConnection ID is the number before the name `huy-ng-prj-2` of the above link.
+Note3: the ServiceConnection ID is the number before the name `azure-udacity-project-2` of the above link.
 
-* Create the webapp deploying the code from the local workspace to Azure app Service ( using Plan B1)  with this command:
+* Create the app service to Azure app Service (using Plan B1) with this command:
 
 ```sh
 az webapp up -n <name of webapp> --location eastus --sku B1
 ```
 ![alt text](https://github.com/huy-js/azure-udacity-project-2/blob/main/images/appservice.png)
-
 
 * Important you need to create a self host agent pool to handle your pipeline
 > Create your own Azure Virtual Machine with following step in Udacity CD part
@@ -65,13 +69,12 @@ az webapp up -n <name of webapp> --location eastus --sku B1
 
 ![alt text](https://github.com/huy-js/azure-udacity-project-2/blob/main/images/agentpool.png)
 
-* In  your new Project in Azure DevOps, go to Pipelines -->New Pipeline --> GitHub --> Select Your Repo --> select `an Existing YAML file`
+* In your new Project in Azure DevOps, go to Pipelines --> New Pipeline --> GitHub --> Select Your Repo --> Select `an Existing YAML file`
 
-> Choose the `main` branch and the file named `azure-pipelines.yml` as is showed on the figure below
-> Update the `azure-pipelines.yml` with the name of your webapp and your Service connection point ( Check YouTube video for a detailed explanation)
-> Modifications are at variables webAppName & environmentName too !!!
+> Choose the `main` branch and the file named `azure-pipelines.yml`
+> Update the `azure-pipelines.yml` with the name of your webapp
 
-* Choose Run Pipeline and your Azure DevOps Pipeline is going to start to be deployed with all his stages ( in this case 2: Build & deploy)
+* Choose Run Pipeline and your Azure DevOps Pipeline is going to start to be deployed with all his stages (in this case 2: Build & deploy)
 
 ![alt text](https://github.com/huy-js/azure-udacity-project-2/blob/main/images/custom-yaml-file.png)
 
@@ -83,7 +86,7 @@ az webapp up -n <name of webapp> --location eastus --sku B1
 html = "<h3">Sklearn Prediction Home</h3>"
 ```
 
-for this one:
+to this one:
 
 ```sh
 html = "<h2>Sklearn Prediction Home APP - RestAPI</h2>"
@@ -92,10 +95,9 @@ html = "<h2>Sklearn Prediction Home APP - RestAPI</h2>"
 and then perform a quick lint and push the changes to your repo:
 
 ```sh
-make lint
 git add .
 git commit -m "app.py updated"
-git push origin main
+git push
 ```
 
 * Check that the webapp is running opening his URL, example:
@@ -105,19 +107,13 @@ https://az-devops-project-2.azurewebsites.net/
 ```
 ![alt text](https://github.com/huy-js/azure-udacity-project-2/blob/main/images/change_to_restapi.png)
 
- Update the file `make_predict_azure_app.sh` with the webapp service end point
+Update the file `make_predict_azure_app.sh` with the app service end point
 
-```sh
-grep https make_predict_azure_app.sh
-```
-
-* When the Azure DevOPs pipeline is successfully deployed, then its time to make a prediction on our webapp ( running in Azure App Service):
+* When the Azure Devops pipeline is successfully deployed, then its time to make a prediction:
 
 ```sh
 ./make_predict_azure_app.sh
 ```
-
-Answer:
 
 ```sh
 Port: 443
@@ -139,18 +135,12 @@ Port: 443
 
 ## CLEANING OUT
 
-* delete the resource group of your webapp created.
-
-> At portal enter to your webapp service , locate the resource group.
-> Go to that resource group and delete it.
-> Wait for the notification of deletion .
-> can close of the Azure portal
+* Delete the resource group of your app service created.
 
 ## Future Enhancements
 
 * Adding more test cases.
 * Creating a UI for making predictions.
-* Using Github Actions instead of Azure pipelines.
-* Run the app on Kubernetes cluster
+* Using Github Actions instead of Azure pipelines. 
 
 ## YouTube Demo
