@@ -13,8 +13,6 @@ ssh-keygen -t rsa
 cat ~/.ssh/id_rsa.pub
 ```
 
-![alt text](https://github.com/huy-js/udacity-project-2/blob/main/images/clonecode.png)
-
 checkout your new branch
 ```sh
 git branch
