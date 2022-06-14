@@ -12,6 +12,7 @@ In this project, you will build a project in Github repository. You will Makefil
 # Project plan
 * Trello url: https://trello.com/b/S8rF7YFI/azure-devops-project-2
 * Link to spreadsheet: 
+https://docs.google.com/spreadsheets/d/1M3G9nIk6ByEg0wnLStx_y8pRqiRuP1UBzMNjy8n06Ls/edit?usp=sharing
 
 # Set up
 * Azure Portal: (https://portal.azure.com/)
