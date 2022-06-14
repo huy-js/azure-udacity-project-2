@@ -71,9 +71,9 @@ vi .github/workflows/pythonapp.yml
 > Note3: the ServiceConnectionID is the number before the name `azure-udacity-project-2` in this url
 
 * Create the app service to Azure app Service (using Plan B1) is recommandation:
-
+> Run shell script to add your azure app service
 ```sh
-az webapp up -n <name of webapp> --location <your location> --sku B1
+./command.sh
 ```
 ![alt text](https://github.com/huy-js/azure-udacity-project-2/blob/main/images/appservice.png)
 
