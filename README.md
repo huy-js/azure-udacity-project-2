@@ -26,6 +26,7 @@ https://docs.google.com/spreadsheets/d/1M3G9nIk6ByEg0wnLStx_y8pRqiRuP1UBzMNjy8n0
 ssh-keygen -t rsa
 cat ~/.ssh/id_rsa.pub
 ```
+![alt text](https://github.com/huy-js/azure-udacity-project-2/blob/main/images/cloen-code.png)
 
 * Create virtual environment in your application.
 
@@ -123,6 +124,8 @@ https://az-devops-project-2.azurewebsites.net/
 
 Update the file `make_predict_azure_app.sh` with the app service end point
 
+![alt text](https://github.com/huy-js/azure-udacity-project-2/blob/main/images/full-run-azure.png)
+
 * When the Azure Devops pipeline is successfully deployed, then its time to make a prediction:
 
 ```sh
@@ -133,6 +136,7 @@ Update the file `make_predict_azure_app.sh` with the app service end point
 Port: 443
 {"prediction":[20.35373177134412]}
 ```
+![alt text](https://github.com/huy-js/azure-udacity-project-2/blob/main/images/make-predict-shell.png)
 
 > Note: Azure cloud Shell is not enough good to perform locust there, so use a VM or your own local machine ( windows, macos, linux) to run Locust
 > Note: run locust and open the browser on `http://localhost:8089/` :
