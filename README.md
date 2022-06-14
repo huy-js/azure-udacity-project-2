@@ -1,4 +1,4 @@
-# udacity-project-2
+# Cloud Devops using Microsoft Azure Project 2
 
 # This was edited in cloud shell
 
@@ -6,6 +6,19 @@
 
 [![Build Status](https://dev.azure.com/huycntt/azure-udacity-project-2/_apis/build/status/huy-js.azure-udacity-project-2?branchName=main)](https://dev.azure.com/huycntt/azure-udacity-project-2/_build/latest?definitionId=20&branchName=main)
 
+# Introduction
+In this project, you will build a project in Github repository. You will Makefile and requirements to initial lint, test and install cycle and intergrate with Azure Pipelins to run Continous Delivery in Azure App Service
+
+# Project plan
+* Trello url: https://trello.com/b/S8rF7YFI/azure-devops-project-2
+* Link to spreadsheet: 
+
+# Set up
+* Azure Portal: (https://portal.azure.com/)
+* Gihub Account: (https://github.com/)
+* Azure Devops: (https://dev.azure.com/)
+
+## First: Create make file and run Githubs Actions
 * First of all we need set up ssh in Azure Cloud Shell, `id_rsa.pub` key to your GitHub repo (ssh keys) and then clone the project into Azure Cloud Shell.
 
 ```sh
@@ -121,7 +134,7 @@ Port: 443
 ```
 
 > Note: Azure cloud Shell is not enough good to perform locust there, so use a VM or your own local machine ( windows, macos, linux) to run Locust
-> Note: copy both files (`loadtesting.sh` & `locustfile.py`) and run the `loadtesting.sh` file and open the browser on `http://localhost:8089/` :
+> Note: run locust and open the browser on `http://localhost:8089/` :
 
 ```sh
 locust
