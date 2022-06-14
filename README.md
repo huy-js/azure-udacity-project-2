@@ -149,7 +149,7 @@ locust
 
 ![alt text](https://github.com/huy-js/azure-udacity-project-2/blob/main/images/locust.png)
 
-## CLEANING OUT
+## Cleaning project
 
 * Delete the resource group of your app service created.
 
